@@ -1,0 +1,34 @@
+# Project: 快捷菜单
+# Makefile created by Dev-C++ 6.7.5
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+RES      = 快捷菜单_private.res
+OBJ      = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS     = -L"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/mingw32/9.2.0/" -L"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/" -L"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/mingw32/lib/" -L"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/" -L"D:/杂货铺/软件/编程类/Dev-Cpp(32位XP可用)/MinGW32/lib" -L"D:/杂货铺/软件/编程类/Dev-Cpp(32位XP可用)/MinGW32/mingw32/lib" -g3 -mwindows -static
+INCS     = -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/mingw32/9.2.0/include" -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/include" -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/mingw32/9.2.0/include-fixed"
+CXXINCS  = -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/mingw32/9.2.0/include/c++" -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/mingw32/9.2.0/include/c++/mingw32" -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/mingw32/9.2.0/include/c++/backward" -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/mingw32/9.2.0/include" -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/include" -I"d:/杂货铺/软件/编程类/dev-cpp(32位xp可用)/mingw32/lib/gcc/mingw32/9.2.0/include-fixed"
+BIN      = 快捷菜单.exe
+CXXFLAGS = $(CXXINCS) -Wall -Wextra -g3
+ENCODINGS = -finput-charset=utf-8 -fexec-charset=gbk
+CFLAGS   = $(INCS) -Wall -Wextra -g3
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "$(BIN)" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS) 
+
+快捷菜单_private.res: 快捷菜单_private.rc 
+	$(WINDRES) -i 快捷菜单_private.rc --input-format=rc -o 快捷菜单_private.res -O coff 
+
